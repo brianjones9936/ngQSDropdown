@@ -1,0 +1,28 @@
+{
+  "name": "ng-qsdropdown",
+  "version": "1.0.1",
+    "description": "A simple drop down list using virtualization with scroll to entry as you type.",
+    "author": "Brian Jones",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/brianjones9936/ngQSDropdown.git"
+    },
+    "bugs": {
+      "url": "https://github.com/brianjones9936/ngQSDropdown/issues"
+    },
+    "homepage": "https://github.com/brianjones9936/ngQSDropdown",
+    "keywords": [
+      "angular",
+      "javascript",
+      "typescript",
+      "dropdown",
+      "search",
+      "virtualization",
+      "directive"
+    ],
+    "license": "MIT",
+  "peerDependencies": {
+    "@angular/common": "^8.2.3",
+    "@angular/core": "^8.2.3"
+  }
+}
