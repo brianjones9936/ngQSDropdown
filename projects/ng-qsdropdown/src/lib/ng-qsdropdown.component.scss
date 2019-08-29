@@ -1,0 +1,136 @@
+
+$red: #7E1421;
+$black-blue: #051A2F;
+$dark-blue: #1C3868;
+$blue: #114B8B;
+$dark-grey: #dadcde;
+$grey: #f3f3f3;
+$light-grey: #fafafa;
+/*
+end color variables
+*/
+$red-rgb: rgba(126, 20, 33, 1);
+$black-blue-rgb: rgba(5, 26, 47, 1);
+$dark-blue-rgb: rgba(28, 56, 104, 1);
+$blue-rgb: rgb(17, 75, 139);
+
+ .item-search-wrap{
+  width: 100%;
+}
+.virt-list-search{
+    border-color: #ccc;
+    width: 85%;
+    transition: border-color 0.3s ease-in-out, background-color 0.4s ease;
+    border-radius: 3px 3px 0 0;
+    padding: 1em 1em 1em;
+  &:focus{
+      border-color: rgba($color: $blue, $alpha: .2);
+      border-bottom-color: $black-blue;
+      // background-color: rgba($color: $grey, $alpha: .7);
+      color: $black-blue;
+      + .virt-list-wrap{
+          box-shadow: 0 4px 8px -1px #535353;
+      }
+  }
+}
+.virt-list-btn {
+    height: 2.7em;
+    width: 2.7em;
+    font-size: 1em;
+    align-items: center;
+    margin: 0em 0em;
+    text-align: center;
+}
+.virt-list-container{
+  flex-direction: column;
+  width: 32em;
+  margin: 0 auto;
+  position: relative;
+  border:solid 1px transparent;
+  transition: border .4s ease;
+  &.item-selected{
+    flex-direction: row;
+    align-items: center;
+    display: inline-flex;
+    .virt-list-search{
+      border-color: transparent;
+      padding:1em .5em 0;
+    }
+    &:hover{
+      border-color: $dark-grey;
+      border-radius: 3px;
+      .virt-list-search{
+        padding: .5em;
+      }
+      .selected-label{
+        background-position: right -3.2em;
+        background-size: 2.2em;
+      }
+    }
+  }
+}
+.virt-list-label{
+  font: 500 1.7em arial;
+  color: #777;
+  background-color: #fff;
+  padding: .3em;
+}
+.select-label{
+  display: block;
+  margin: 0 auto -.7em;
+  z-index: 9;
+}
+.virt-list-wrap{
+    height: 200px;
+    width: calc(100% - 2px);
+    overflow-x: hidden;
+    border: solid 1px $black-blue;
+    border-top: none;
+    border-radius: 0 0 3px 3px;
+    background-color: #f3f3f3;
+    box-shadow: 0 -3px 4px 0 inset rgba($color: $black-blue, $alpha: .9);
+    transition: box-shadow .6s ease-in-out;
+    &.absolute-list{
+      position: absolute;
+      z-index: 99;
+      top: 100%;
+      box-shadow: 0 3px 5px #000;
+    }
+}
+.virt-list-item{
+    height: 35px;
+    line-height: 35px;
+    box-shadow: 0 0 0 1px #fff inset;
+    border-radius: 3px;
+    padding: 0 1em;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    background-color: rgba($color: $dark-blue, $alpha: .9);
+    color: white;
+    white-space: nowrap;
+    position: relative;
+    padding-left: 1.7em;
+    transition: background-color .5s ease, box-shadow .5s ease, padding .5s ease;
+    &:after{
+        content: ' ';
+        height: 0;
+        width: 0;
+        position: absolute;
+        left: -2em;
+        top: 1em;
+        border: solid 8px;
+        border-color: transparent transparent transparent #fff;
+        transition: left .5s linear, border-color .5s ease;
+    }
+    &.found-item{
+        background-color: rgba($color: $blue, $alpha: .9);
+        box-shadow: 0 0 2px 0 $black-blue;
+        &:after{
+            border-color: transparent transparent transparent #fff;
+            left: .2em;
+        }
+    }
+}
+.no-search .virt-list-item{
+    max-width: 100%;
+}

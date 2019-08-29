@@ -1,0 +1,38 @@
+<div class="flex-wrapper virt-list-container">
+  <div class="item-search-wrap flex-wrapper">
+    <input autofocus spellcheck="false" id="itemSearchInput" (onblur)="showDropdown = false" onfocus="this.select();" (click)="showDropdown = true;"
+      class="panel-input virt-list-search" *ngIf="items && items.length > 0" placeholder="search..."
+      (keydown.enter)="selectOnEnterFoundItem()" (keyup)="scrollToNearestItem()" [(ngModel)]="itemSearchValue">
+    <svg (click)="dropDownClick()" style="margin: -.75em -2.75em" *ngIf="!showDropdown" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+      y="0px" width="40px" height="33px" viewBox="-491 368 40 33" enable-background="new -491 368 40 33"
+      xml:space="preserve"> <g id="Layer_3"> </g> <g id="Layer_2"> </g> <g id="Check_-_Orange"> </g> <g>
+        <rect x="-490" y="366.2" fill="#F3F3F3" width="43.5" height="36.5" /> </g>
+      <g> <rect x="-489.9" y="366.2" fill="#FFFFFF" width="1" height="36.5" /> </g>
+      <g>
+        <path fill="#999999" d="M-469.6,391.5c-0.1,0-0.2,0-0.2-0.1l-3.4-5.8l-3.3-5.8c0-0.1,0-0.2,0-0.2c0-0.1,0.1-0.1,0.2-0.1h13.5
+    		c0.1,0,0.2,0,0.2,0.1c0,0.1,0,0.2,0,0.3l-6.8,11.6C-469.4,391.5-469.5,391.5-469.6,391.5z" />
+        <path fill="#999999" d="M-462.8,379.7l-3.4,5.8l-3.4,5.8l-3.4-5.8l-3.3-5.8h6.7H-462.8 M-462.8,379.2h-6.8h-6.7
+    		c-0.2,0-0.3,0.1-0.4,0.2c-0.1,0.2-0.1,0.3,0,0.5l3.3,5.8l3.4,5.8c0.1,0.2,0.3,0.2,0.4,0.2c0.2,0,0.3-0.1,0.4-0.2l3.4-5.8l3.4-5.8
+    		c0.1-0.2,0.1-0.3,0-0.5C-462.5,379.3-462.6,379.2-462.8,379.2L-462.8,379.2z" />
+      </g>
+      <g>
+        <path fill="#AAAAAA" d="M-469.6,389.9c-0.1,0-0.2,0-0.2-0.1l-2.9-5l-2.8-5c0-0.1,0-0.2,0-0.2c0-0.1,0.1-0.1,0.2-0.1h11.6
+    		c0.1,0,0.2,0,0.2,0.1c0,0.1,0,0.2,0,0.3l-5.8,9.9C-469.4,389.8-469.5,389.9-469.6,389.9z" />
+        <path fill="#AAAAAA" d="M-463.8,379.7l-2.9,5l-2.9,5l-2.9-5l-2.8-5h5.7H-463.8 M-463.8,379.2h-5.8h-5.7c-0.2,0-0.3,0.1-0.4,0.2
+    		c-0.1,0.2-0.1,0.3,0,0.5l2.8,5l2.9,5c0.1,0.2,0.3,0.2,0.4,0.2s0.3-0.1,0.4-0.2l2.9-5l2.9-5c0.1-0.2,0.1-0.3,0-0.5
+    		C-463.4,379.3-463.6,379.2-463.8,379.2L-463.8,379.2z" />
+      </g>
+      <g>
+        <rect x="-490.5" y="366.2" fill="#CDCCCC" width="1" height="36.5" />
+      </g>
+    </svg>
+    <button class="virt-list-btn" *ngIf="showDropdown" (click)="showDropdown = false">X</button>
+  </div>
+  <cdk-virtual-scroll-viewport *ngIf="showDropdown" id="dropDownScroll" class="virt-list-wrap absolute-list"
+    [itemSize]="itemSize" [style.height]="items && items.length < 6 ? items.length * itemSize + 'px' : '200px'">
+    <div class="virt-list-item" *cdkVirtualFor="let item of items ? items : []" style="cursor: pointer"
+      [ngClass]="{'found-item': itemFoundId === item[itemIdProperyName]}" (click)="selectItemClick(item)">
+        {{item[itemDisplayPropertyName]}}
+    </div>
+  </cdk-virtual-scroll-viewport>
+</div>
