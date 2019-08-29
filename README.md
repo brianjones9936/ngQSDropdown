@@ -1,7 +1,7 @@
 # QSDropdown
-•	An Angular Library that provides a simple drop down list using virtualization and a scroll to entry as you type.<br>
+•	An Angular Library that provides a simple drop down list using virtualization (scrolling from angular sdk) and a scroll to entry as you type.<br>
 •	This component provides easy search and selection on large data lists.<br>
-•	It was developed using Angular > = 8.2.3<br>
+•	It was developed using Angular 8.2.3<br>
 
 # Installation
 •	npm i ng-qsdropdown<br>
